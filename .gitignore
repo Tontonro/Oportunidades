@@ -1,0 +1,31 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente e arquivos locais
+.env
+.env.*
+!.env.example
+
+# Banco de dados SQLite gerado pela aplicação
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+
+# Cobertura de testes
+coverage/
+.nyc_output/
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Configurações de editores
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/

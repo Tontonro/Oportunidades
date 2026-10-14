@@ -1,0 +1,5 @@
+<main class="content">
+  <div class="list-heading"><h1>Oportunidades cadastradas</h1><span class="count">{{oportunidades.length}} registros</span></div>
+  <section class="opportunity-list">{{#if oportunidades.length}}{{#each oportunidades}}{{> componente-oportunidade}}{{/each}}{{else}}<p>Nenhuma oportunidade foi encontrada.</p>{{/if}}</section>
+  <footer class="footer">Oportunidades | ordenação por prazo crescente</footer>
+</main>

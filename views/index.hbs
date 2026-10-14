@@ -1,0 +1,33 @@
+<main class="content">
+  {{!-- Seção inicial com apresentação do portal e chamada para ação. --}}
+  <section class="hero">
+    <h1>Oportunidades</h1>
+    <p class="muted">Encontre oportunidades de forma simples e objetiva.</p>
+    <a class="primary-button" href="/oportunidades">Conhecer o acervo</a>
+  </section>
+
+  <hr class="section-rule">
+
+  {{!-- Destaques principais do portal. --}}
+  <section class="highlights">
+    <h2>Destaques do portal</h2>
+
+    <div class="card-grid">
+      {{#if destaques.length}}
+        {{#each destaques}}
+          <article class="highlight-card">
+            <h3>{{titulo}}</h3>
+            <p class="muted">{{instituicao}} · {{modalidade}}</p>
+            <a class="outline-button" href="/oportunidades/{{id}}">Ver detalhes</a>
+          </article>
+        {{/each}}
+      {{else}}
+        <p>Nenhum destaque encontrado.</p>
+      {{/if}}
+    </div>
+  </section>
+
+  <footer class="footer">
+    Oportunidades | oportunidades para estudantes
+  </footer>
+</main>
