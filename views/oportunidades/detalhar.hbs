@@ -1,6 +1,6 @@
-<main class="content"><p class="breadcrumbs"><a href="/">Início</a> / <a href="/oportunidades">Oportunidades</a> / {{oportunidade.titulo}}</p>
+<main class="content"><p class="breadcrumbs"><a href="/inicio">Início</a> / <a href="/lista">Oportunidades</a> / {{oportunidade.titulo}}</p>
   <div class="detail-layout"><article class="detail-card"><h1>{{oportunidade.titulo}}</h1>
     <div class="field"><strong>Título</strong><span>{{oportunidade.titulo}}</span></div><div class="field"><strong>Instituição</strong><span>{{oportunidade.instituicao}}</span></div><div class="field"><strong>Modalidade</strong><span>{{oportunidade.modalidade}}</span></div><div class="field"><strong>Prazo</strong><span>{{formatarData oportunidade.prazo}}</span></div><div class="field"><strong>Descrição</strong><span>{{oportunidade.descricao}}</span></div>
-  </article><aside><div class="side-panel"><h2>Informação principal</h2><span class="badge">PRAZO: {{formatarData oportunidade.prazo}}</span><p>Consulte os requisitos e organize sua inscrição dentro do prazo.</p></div><a class="outline-button back-button" href="/oportunidades">Voltar para a lista</a></aside></div>
+  </article><aside><div class="side-panel"><h2>Informação principal</h2>{{#if (diasRestantes oportunidade.prazo)}}<span class="badge">ENCERRA EM {{diasRestantes oportunidade.prazo}} DIAS</span><p>Consulte os requisitos e organize sua inscrição dentro do prazo.</p>{{else}}<span class="badge">PRAZO ENCERRADO</span><p>O prazo desta oportunidade já foi encerrado.</p>{{/if}}</div><a class="outline-button back-button" href="/lista">Voltar para a lista</a></aside></div>
   <footer class="footer">Oportunidades | detalhe do registro</footer>
 </main>

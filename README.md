@@ -41,9 +41,13 @@ npm test
 ## Rotas
 
 - `GET /` - página inicial com três destaques;
+- `GET /inicio` - alias da página inicial, conforme o wireframe;
 - `GET /saude` - diagnóstico JSON;
 - `GET /oportunidades` - listagem ordenada por prazo crescente;
+- `GET /lista` - alias da listagem, conforme o wireframe;
 - `GET /oportunidades/:id` - detalhamento;
+- `GET /detalhes/:id` - alias do detalhamento, conforme o wireframe;
+- `GET /sobre` - informações sobre o portal;
 - qualquer rota desconhecida - página 404 contextualizada.
 
 ## Organização

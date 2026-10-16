@@ -15,6 +15,12 @@ test("renderiza a página inicial", async () => {
   assert.equal(response.status, 200);
   assert.match(response.text, /Oportunidades/);
 });
+test("mantém os caminhos do wireframe e o link Sobre funcionais", async () => {
+  assert.equal((await request(app).get("/inicio")).status, 200);
+  assert.equal((await request(app).get("/lista")).status, 200);
+  assert.equal((await request(app).get("/detalhes/1")).status, 200);
+  assert.equal((await request(app).get("/sobre")).status, 200);
+});
 test("responde saúde em JSON", async () => {
   const response = await request(app).get("/saude");
   assert.deepEqual(response.body, { status: "ok" });

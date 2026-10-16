@@ -3,7 +3,7 @@ const { Oportunidade } = require("../models");
 
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
+async function renderInicio(req, res, next) {
   try {
     const destaques = await Oportunidade.findAll({
       order: [["prazo", "ASC"]],
@@ -14,20 +14,18 @@ router.get("/", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+}
 
-router.get("/saude", (req, res) => res.json({ status: "ok" }));
-
-router.get("/oportunidades", async (req, res, next) => {
+async function renderLista(req, res, next) {
   try {
     const oportunidades = await Oportunidade.findAll({ order: [["prazo", "ASC"]], raw: true });
     res.render("oportunidades/listar", { oportunidades });
   } catch (error) {
     next(error);
   }
-});
+}
 
-router.get("/oportunidades/:id", async (req, res, next) => {
+async function renderDetalhamento(req, res, next) {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) return res.status(404).render("404");
 
@@ -38,6 +36,15 @@ router.get("/oportunidades/:id", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+}
+
+router.get(["/", "/inicio"], renderInicio);
+
+router.get("/saude", (req, res) => res.json({ status: "ok" }));
+
+router.get(["/oportunidades", "/lista"], renderLista);
+router.get("/sobre", (req, res) => res.render("sobre"));
+
+router.get(["/oportunidades/:id", "/detalhes/:id"], renderDetalhamento);
 
 module.exports = router;
